@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Required meta tags -->
+    <meta http-equiv="Content-Type" content="text/html";charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+    <!-- Required signature-pad -->
+    <link rel="stylesheet" href="css/signature-pad.css">
+  
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>CheckList Mantenimiento</title>
+  </head>
+  <body>
+      <div id="app-2">
+          
+          <h1>
+              {{titulo}}
+          </h1>
+          <form>
+
+                <button class="btn btn-warning col-md-12" type="button" data-toggle="collapse" data-target="#collapseExample0" aria-expanded="false" aria-controls="collapseExample">
+                        Registro
+                    </button>
+    <div class="collapse" id="collapseExample0">
+
+            <div class="form-row col-md-12">
+                <div class="form-group col-md-2">
+                    <label >Fecha</label>
+                    <input type="date" name="bday" max="3000-12-31" 
+                       min="1000-01-01" class="form-control">
+                </div>
+
+                <div class="form-group col-md-2">
+                    <label for="inputHora">Hora</label>
+                    <input type="text" class="form-control" id="hora" placeholder="hh:mm">
+                </div>
+
+            <div class="form-group col-md-4">
+              <label for="inputOperario">Operario</label>
+              <input type="text" class="form-control" id="inputOperario" placeholder="Operario">
+            </div>
+            <div class="form-group col-md-2">
+                <label for="FormControlSelectSala">Sala</label>
+                <select class="form-control" id="eFormControlSelectSala">
+                  <option>Quirofano 1</option>
+                  <option>Quirofano 2</option>
+                  <option>Reanimación</option>
+                  <option>Colonoscopias 1</option>
+                  <option>Colonoscopias 2</option>
+                </select>
+              </div>
+            </div>
+        </div>
+        <p></p>
+
+            <button class="btn btn-primary col-md-12" type="button" data-toggle="collapse" data-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample">
+                        Revisión visual y comprobación de las salas interiores
+                    </button>
+            <div class="collapse" id="collapseExample1">
+                <div class="table-responsive col-md-12">
+                    <div class="row" v-for="pregunta of items1">
+                        <div class="col-sm-9">
+                            {{pregunta.item}}
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" :id="pregunta.id[0]" :name="pregunta.id[0]" class="custom-control-input">
+                                <label class="custom-control-label" :for="pregunta.id[0]">Sí</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" :id="pregunta.id[1]" :name="pregunta.id[0]" class="custom-control-input">
+                                <label class="custom-control-label" :for="pregunta.id[1]">No</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p></p>
+        <button class="btn btn-primary col-md-12" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">
+            Revisión visual y comprobación de instalaciones, apartos de pasillos, salas de zona limpia y sucia
+        </button>
+        <div class="collapse" id="collapseExample2">
+            <div class="table-responsive col-md-12">
+                <div class="row" v-for="pregunta of items2">
+                    <div class="col-md-9">
+                        {{pregunta.item}}
+                    </div>
+                    <div class="col-md-3">
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" :id="pregunta.id[0]" :name="pregunta.id[0]" class="custom-control-input">
+                            <label class="custom-control-label" :for="pregunta.id[0]">Sí</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" :id="pregunta.id[1]" :name="pregunta.id[0]" class="custom-control-input">
+                            <label class="custom-control-label" :for="pregunta.id[1]">No</label>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        </form>         
+        <p></p>
+
+        <button class="btn btn-dark col-md-12" type="button" data-toggle="collapse" data-target="#firma" aria-expanded="false" aria-controls="firma">
+                FIRMA
+            </button>
+            
+    <!-- signature-pad -->
+            <div id="signature-pad" class="signature-pad">
+                <div class="signature-pad--body">
+                    <canvas></canvas>
+                </div>
+                <div class="signature-pad--footer">
+                    <div class="description">
+                        Firmar aquí
+                    </div>
+                
+                    <div class="signature-pad--actions">
+                        <div>
+                            <button type="button" class="button clear" data-action="clear">Borrar</button>
+                            <button type="button" class="button" data-action="undo">Undo</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          <script src="js/signature_pad.js"></script>
+          <script src="js/app-pad.js"></script>
+        
+                
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+      <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/app.js"></script>
+
+
+
+</body>
+</html>
