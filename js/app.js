@@ -3,21 +3,22 @@ var app2 = new Vue({
     data: {
       message: 'You loaded this page on ' + new Date().toLocaleString(),
       titulo: 'Check List',
+      fondo: 'alert-light',
       items1: [
-        {id: ['id11a','id11b'], item: 'Alarma acustica de aislamiento tierra panel interior'},
-        {id: ['id12a','id12b'], item: 'Cables de tierra existentes y clavijas, pinzas en buen estado todas las mesas, camas y aparatos con toma de tierra'},
-        {id: ['id13a','id13b'], item: 'Comprobación lámpara quirófano (luz y movimiento)'},
-        {id: ['id14a','id14b'], item: 'Comprobación luces interiores'},
-        {id: ['id15a','id15b'], item: 'Cables de tierra conectados: a mesa y carro de anestesia'},
-        {id: ['id16a','id16b'], item: 'Mando, mesa operaciones'},
-        {id: ['id17a','id17b'], item: 'Verificación de variación de presión al abrir puerta'}
+        {id: 'id11', valor: 0, error: '', item: 'Alarma acustica de aislamiento tierra panel interior'},
+        {id: 'id12', valor: 0, error: '', item: 'Cables de tierra existentes y clavijas, pinzas en buen estado todas las mesas, camas y aparatos con toma de tierra'},
+        {id: 'id13', valor: 0, error: '', item: 'Comprobación lámpara quirófano (luz y movimiento)'},
+        {id: 'id14', valor: 0, error: '', item: 'Comprobación luces interiores'},
+        {id: 'id15', valor: 0, error: '', item: 'Cables de tierra conectados: a mesa y carro de anestesia'},
+        {id: 'id16', valor: 0, error: '', item: 'Mando, mesa operaciones'},
+        {id: 'id17', valor: 0, error: '', item: 'Verificación de variación de presión al abrir puerta'}
       ],
       items2: [
-        {id: ['id21a','id21b'], item: 'Comprobación de cuadros gases'},
-        {id: ['id22a','id22b'], item: 'Estado de suelos'},
-        {id: ['id23a','id23b'], item: 'Termostatos en posición auto'},
-        {id: ['id24a','id24b'], item: 'Comprobación de luces, mecanismos, estanterias'},
-        {id: ['id25a','id25b'], item: 'Lavabos, cuartos de baño, fregaderos'}
+        {id: 'id21', valor: 0, error: '', item: 'Comprobación de cuadros gases'},
+        {id: 'id22', valor: 0, error: '', item: 'Estado de suelos'},
+        {id: 'id23', valor: 0, error: '', item: 'Termostatos en posición auto'},
+        {id: 'id24', valor: 0, error: '', item: 'Comprobación de luces, mecanismos, estanterias'},
+        {id: 'id25', valor: 0, error: '', item: 'Lavabos, cuartos de baño, fregaderos'}
       ],
       frutas: [
           {nombre:'Manzana', cantidad:10},
@@ -47,3 +48,22 @@ var app2 = new Vue({
     }
   })
 
+  var date = new Date();
+  var today = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+  
+  var optSimple = {
+    format: 'dd-mm-yyyy',
+    todayHighlight: true,
+    orientation: 'bottom right',
+    autoclose: true,
+    container: '#sandbox'
+  };
+  
+  var optComponent = {
+    format: 'mm-dd-yyyy',
+    container: '#datePicker',
+    orientation: 'auto top',
+    todayHighlight: true,
+    autoclose: true
+  };
+  

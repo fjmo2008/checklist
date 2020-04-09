@@ -84,6 +84,7 @@ undoButton.addEventListener("click", function (event) {
   }
 });
 
+/*
 changeColorButton.addEventListener("click", function (event) {
   var r = Math.round(Math.random() * 255);
   var g = Math.round(Math.random() * 255);
@@ -119,3 +120,4 @@ saveSVGButton.addEventListener("click", function (event) {
     download(dataURL, "signature.svg");
   }
 });
+*/
